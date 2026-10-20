@@ -6,12 +6,28 @@
     <title>WINDOW</title>
 </head>
 <body>
-    <p>Si quieres imprimir pulsa el botón</p>
+    <p id="texto"></p>
+    <p id="redimension"></p>
     <button onclick="imprimir()">Imprimir</button>
-
+    <p>Si quieres redimensionar la ventana al tamaño indicado pulse el botón</p>
+    <button onclick="redimension()">Redimension</button>
     <script>
+        let texto = prompt("Escribe lo que quieras imprimir");
+        document.getElementById("texto").innerHTML += texto
         function imprimir(){
             print()
+        }
+        let ancho = parseInt(prompt("¿Cuántos píxeles quieres aumentar el ancho para poder imprimir?"));
+        let alto = parseInt(prompt("¿Cuántos píxeles quieres aumentar el alto para poder imprimir?"));
+
+        window.resizeBy(ancho, alto);
+        document.getElementById("redimension").innerHTML +=
+        `Se ha intentado aumentar la ventana ${ancho} px de ancho y ${alto} px de alto.`;
+        
+        function redimension(){
+            let ancho2 = parseInt(prompt("¿Cuántos píxeles quieres aumentar el ancho para poder imprimir?"));
+            let alto2 = parseInt(prompt("¿Cuántos píxeles quieres aumentar el alto para poder imprimir?"));
+            window.resizeTo(ancho2, alto2);
         }
     </script>
 </body>
