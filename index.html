@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objeto Window - Guillermo</title>
+</head>
+<body>
+    <main>
+        <section>
+            <h2>alert()</h2>
+            <button onclick="pulsarAlert()">Probar alerta</button>
+        </section>
+        <section>
+            <h2>blur()</h2>
+            <button onclick="pulsarBlur()">Probar blur</button>
+        </section>
+        <section>
+            <h2>close()</h2>
+
+        </section>
+        <section>
+            <h2>confirm()</h2>
+
+        </section>
+        <section>
+            <h2>focus()</h2>
+
+        </section>
+        <section>
+            <h2>moveBy()</h2>
+
+        </section>
+        <section>
+            <h2>moveTo()</h2>
+
+        </section>
+        <section>
+            <h2>open()</h2>
+            <button onclick="pulsarOpen()">Probar open</button>
+        </section>
+    </main>
+
+    <script>
+        function pulsarAlert() {
+            // "window.alert" no es necesario; tan solo "alert" sería correcto, puesto que siempre partimos de window por defecto
+            window.alert("Vamos a aprender el objeto Window :))");
+        }
+
+        function pulsarBlur() {
+            const myWindow = window.open("", "", "width=200, height=100");
+            myWindow.blur();
+        }
+
+        function pulsarOpen() {
+            let pagina = "sandra.html";
+            open(pagina);
+        }
+    </script>
+</body>
+</html>
