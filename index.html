@@ -17,11 +17,12 @@
         </section>
         <section>
             <h2>close()</h2>
-
+            <button onclick="pulsarClose()">Probar close</button>
         </section>
         <section>
             <h2>confirm()</h2>
-
+            <button onclick="pulsarConfirm()">Probar confirm</button>
+            <p id="confirmar"></p>
         </section>
         <section>
             <h2>focus()</h2>
@@ -48,8 +49,21 @@
         }
 
         function pulsarBlur() {
-            const myWindow = window.open("", "", "width=200, height=100");
-            myWindow.blur();
+            // Este ejemplo es el utilizado en la página del consorcio, pero "blur()" está en desuso, por lo que no funciona (al menos en este navegador)
+            const VENTANA = window.open("", "", "width=200, height=100");
+            VENTANA.blur();
+        }
+
+        function pulsarClose() {
+            window.close();
+        }
+
+        function pulsarConfirm() {
+            if (window.confirm("Acepta o cancela")) {
+                document.getElementById("confirmar").innerHTML = "Se ha CONFIRMADO."
+            } else {
+                document.getElementById("confirmar").innerHTML = "Se ha CANCELADO."
+            }
         }
 
         function pulsarOpen() {
