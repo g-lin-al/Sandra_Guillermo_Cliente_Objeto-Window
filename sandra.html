@@ -1,34 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WINDOW</title>
 </head>
 <body>
+
     <p id="texto"></p>
     <p id="redimension"></p>
-    <button onclick="imprimir()">Imprimir</button>
-    <p>Si quieres redimensionar la ventana al tamaño indicado pulse el botón</p>
-    <button onclick="redimension()">Redimension</button>
-    <script>
-        let texto = prompt("Escribe lo que quieras imprimir");
-        document.getElementById("texto").innerHTML += texto
-        function imprimir(){
-            print()
-        }
-        let ancho = parseInt(prompt("¿Cuántos píxeles quieres aumentar el ancho para poder imprimir?"));
-        let alto = parseInt(prompt("¿Cuántos píxeles quieres aumentar el alto para poder imprimir?"));
 
-        window.resizeBy(ancho, alto);
-        document.getElementById("redimension").innerHTML +=
-        `Se ha intentado aumentar la ventana ${ancho} px de ancho y ${alto} px de alto.`;
-        
-        function redimension(){
-            let ancho2 = parseInt(prompt("¿Cuántos píxeles quieres aumentar el ancho para poder imprimir?"));
-            let alto2 = parseInt(prompt("¿Cuántos píxeles quieres aumentar el alto para poder imprimir?"));
-            window.resizeTo(ancho2, alto2);
+    <button onclick="imprimir()">Imprimir</button>
+
+    <p>Si quieres aumentar el tamaño de la ventana pulsa el botón</p>
+    <button onclick="aumentar()">ResizeBy</button>
+
+    <p>Si quieres cambiar el tamaño de la ventana pulsa el botón</p>
+    <button onclick="redimension()">ResizeTo</button>
+
+    <p>Si quieres mover el scroll una cantidad de píxeles pulsa el botón</p>
+    <button onclick="moverScroll()">ScrollBy</button>
+
+    <p>Si quieres ir a una posición concreta de la página pulsa el botón</p>
+    <button onclick="irScroll()">ScrollTo</button>
+
+    <p>Si quieres detener la carga de la página pulsa el botón</p>
+    <button onclick="parar()">Stop</button>
+
+    <div style="height:1500px;"></div>
+
+    <script>
+
+        let texto = prompt("Escribe lo que quieras imprimir");
+        document.getElementById("texto").innerHTML = texto;
+
+        function imprimir() {
+            window.print();
         }
+
+        function aumentar() {
+
+            let ancho = parseInt(prompt("¿Cuántos píxeles quieres aumentar el ancho?"));
+            let alto = parseInt(prompt("¿Cuántos píxeles quieres aumentar el alto?"));
+
+            window.resizeBy(ancho, alto);
+
+            document.getElementById("redimension").innerHTML =
+            `Se ha intentado aumentar la ventana ${ancho}px de ancho y ${alto}px de alto.`;
+        }
+
+        function redimension() {
+
+            let ancho = parseInt(prompt("Introduce el nuevo ancho de la ventana:"));
+            let alto = parseInt(prompt("Introduce el nuevo alto de la ventana:"));
+
+            window.resizeTo(ancho, alto);
+
+            document.getElementById("redimension").innerHTML =
+            `Se ha intentado cambiar el tamaño de la ventana a ${ancho}px de ancho y ${alto}px de alto.`;
+        }
+
+        function moverScroll() {
+
+            let pixeles = parseInt(prompt("¿Cuántos píxeles quieres mover el scroll hacia abajo?"));
+
+            window.scrollBy(0, pixeles);
+        }
+
+        function irScroll() {
+
+            let posicion = parseInt(prompt("¿A qué posición de la página quieres ir?"));
+
+            window.scrollTo(0, posicion);
+        }
+
+        function parar() {
+
+            window.stop();
+            alert("Se ha intentado detener la carga de la página.");
+
+        }
+
     </script>
 </body>
 </html>
