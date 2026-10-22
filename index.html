@@ -17,6 +17,7 @@
         </section>
         <section>
             <h2>close()</h2>
+            <button onclick="pulsarAbrirPrueba()">Abrir pestaña</button>
             <button onclick="pulsarClose()">Probar close</button>
         </section>
         <section>
@@ -26,36 +27,43 @@
         </section>
         <section>
             <h2>focus()</h2>
-
+            <button onclick="pulsarAbrirPrueba()">Abrir pestaña</button>
+            <button onclick="pulsarFoco()">Dar foco</button>
         </section>
         <section>
             <h2>moveBy()</h2>
-
+            <button onclick="pulsarAbrirPrueba()">Abrir pestaña</button>
+            <button onclick="pulsarMoveBy()">Probar moveBy</button>
         </section>
         <section>
             <h2>moveTo()</h2>
-
+            <button onclick="pulsarAbrirPrueba()">Abrir pestaña</button>
+            <button onclick="pulsarMoveTo()">Probar moveTo</button>
         </section>
         <section>
             <h2>open()</h2>
-            <button onclick="pulsarOpen()">Probar open</button>
+            <button onclick="pulsarOpen()">Continuar</button>
         </section>
     </main>
 
     <script>
+        let ventana;
+
+        function pulsarAbrirPrueba() {
+            ventana = window.open("https://www.arcipreste.org", "", "width=400, height=450");
+        }
+
         function pulsarAlert() {
-            // "window.alert" no es necesario; tan solo "alert" sería correcto, puesto que siempre partimos de window por defecto
             window.alert("Vamos a aprender el objeto Window :))");
         }
 
         function pulsarBlur() {
             // Este ejemplo es el utilizado en la página del consorcio, pero "blur()" está en desuso, por lo que no funciona (al menos en este navegador)
-            const VENTANA = window.open("", "", "width=200, height=100");
-            VENTANA.blur();
+            window.blur();
         }
 
         function pulsarClose() {
-            window.close();
+            ventana.close();
         }
 
         function pulsarConfirm() {
@@ -64,6 +72,18 @@
             } else {
                 document.getElementById("confirmar").innerHTML = "Se ha CANCELADO."
             }
+        }
+
+        function pulsarFoco() {
+            ventana.focus();
+        }
+        
+        function pulsarMoveBy() {
+            window.moveBy(75, 75);
+        }
+        
+        function pulsarMoveTo() {
+            window.moveTo(150, 150);
         }
 
         function pulsarOpen() {
